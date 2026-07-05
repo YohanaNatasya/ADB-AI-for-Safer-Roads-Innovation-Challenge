@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADB Road Safety Assessment — Results Summary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asphalt:#1b2027;
+  --paper:#fbfaf7;
+  --ink:#1c212a;
+  --muted:#5c6572;
+  --line:#e2ded2;
+  --lane:#ffc94d;
+  --thai:#1e5c96;
+  --thai-soft:#e8f1fa;
+  --mh:#d97e1c;
+  --mh-soft:#fbf0de;
+  --go:#2f8f5b;
+  --go-soft:#e7f4ed;
+  --stop:#c8493f;
+  --stop-soft:#faeae8;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:'Inter',Arial,sans-serif;color:var(--ink);background:#3a3d42;line-height:1.42;font-feature-settings:"tnum" 1}
+h1,h2,h3,h4{font-family:'Barlow Condensed',Arial,sans-serif;margin:0}
+.mono{font-family:'IBM Plex Mono',monospace}
+
+/* ---------- PAGE FRAME ---------- */
+.page{
+  width:794px;min-height:1123px;margin:26px auto;background:var(--paper);
+  box-shadow:0 8px 30px rgba(0,0,0,.35);position:relative;padding:44px 52px 40px;
+  page-break-after:always; border-top:7px solid var(--lane);
+}
+.page.cover{background:linear-gradient(160deg,#12161c,var(--asphalt) 48%,#20303e 100%);
+  color:#f4f2ec;border-top:none;border-bottom:7px solid var(--lane);}
+
+.runhead{display:flex;justify-content:space-between;align-items:center;
+  font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:20px}
+.runhead b{color:var(--asphalt)}
+
+/* ---------- COVER ---------- */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;
+  background:rgba(255,201,77,.14);border:1px solid rgba(255,201,77,.4);color:var(--lane);
+  padding:5px 12px;border-radius:5px}
+.cover h1{font-size:44px;line-height:1.08;margin:20px 0 16px;font-weight:700;color:#fff;max-width:640px}
+.cover .sub{max-width:600px;font-size:15.5px;color:#c9d0da;margin:0 0 30px}
+.kpis{display:flex;gap:14px;margin-top:10px;flex-wrap:wrap}
+.kpi{display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.045);border-radius:11px;padding:12px 15px;flex:1;min-width:150px}
+.kpi .badge{flex:0 0 auto;width:48px;height:48px;border-radius:50%;background:var(--paper);
+  border:3px solid var(--lane);display:flex;align-items:center;justify-content:center;
+  font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:12px;color:var(--asphalt);text-align:center;line-height:1.05}
+.kpi span{font-size:11.5px;color:#b7c0cc;display:block}
+.cover .qlist{margin-top:44px;border-top:1px solid rgba(255,255,255,.18);padding-top:22px}
+.cover .qlist .qhead{font-family:'Barlow Condensed',sans-serif;font-size:12px;text-transform:uppercase;
+  letter-spacing:.14em;color:#8b96a6;margin-bottom:12px}
+.cover .qlist ol{margin:0;padding-left:20px;color:#dfe3e9;font-size:13.5px}
+.cover .qlist li{margin:7px 0}
+.cover .qlist b{color:#fff}
+
+/* ---------- SECTION HEAD ---------- */
+.q-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
+.q-num{flex:0 0 auto;width:38px;height:38px;border-radius:8px;background:var(--asphalt);
+  color:var(--lane);font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:16px;
+  display:flex;align-items:center;justify-content:center}
+.q-head h2{font-size:23px;color:var(--asphalt);font-weight:700;line-height:1.18;padding-top:2px}
+.cont-tag{font-family:'Barlow Condensed',sans-serif;font-size:11px;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
+.intro{color:var(--muted);font-size:13.3px;margin:0 0 14px}
+p.body{font-size:13.3px;color:#333d4b;margin:0 0 12px}
+h4.sub{font-size:14.5px;color:var(--asphalt);margin:16px 0 6px;font-weight:600}
+
+/* ---------- CARDS ---------- */
+.grid2{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 14px}
+.grid2 .card{flex:1;min-width:210px}
+.card{border:1px solid var(--line);border-radius:10px;padding:13px 14px;background:#fff}
+.card h3{font-size:14px;margin:0 0 5px;font-weight:600;color:var(--asphalt)}
+.card p{margin:0;color:#3a4453;font-size:12.3px;line-height:1.4}
+.blue{border-left:4px solid var(--thai);background:linear-gradient(180deg,var(--thai-soft),#fff 45%)}
+.teal{border-left:4px solid var(--go);background:linear-gradient(180deg,var(--go-soft),#fff 45%)}
+.amber{border-left:4px solid var(--mh);background:linear-gradient(180deg,var(--mh-soft),#fff 45%)}
+.red{border-left:4px solid var(--stop);background:linear-gradient(180deg,var(--stop-soft),#fff 45%)}
+
+/* ---------- TABLES ---------- */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;margin:10px 0 14px}
+table{border-collapse:collapse;width:100%;font-size:11.3px}
+th{background:var(--asphalt);color:#f0eee6;text-align:left;padding:7px 8px;
+  font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:.02em;
+  text-transform:uppercase;font-size:10px;white-space:nowrap}
+td{padding:6.5px 8px;border-top:1px solid #edf0f4;color:#2a3341;white-space:nowrap}
+td.wrap{white-space:normal}
+tbody tr:nth-child(even){background:#f8f7f2}
+.small-table table{min-width:1060px}
+.small-table td:first-child,.small-table th:first-child{min-width:185px}
+.top10-table table{min-width:680px}
+.table-cap{font-family:'Barlow Condensed',sans-serif;font-size:12.5px;text-transform:uppercase;
+  letter-spacing:.04em;color:var(--asphalt);font-weight:600;margin:14px 0 2px}
+
+/* ---------- NOTE / CALLOUT ---------- */
+.note{display:flex;gap:10px;padding:11px 14px;border:1px solid #cfe0f4;background:#edf5fe;
+  border-radius:8px;margin:14px 0;color:#254b75;font-size:12.3px}
+.note::before{content:"⚑";flex:0 0 auto;color:var(--thai);font-size:14px}
+.note b{color:#173a5e}
+.keynote{display:flex;gap:10px;padding:12px 14px;border:1px solid #ffe1ab;background:#fff8ea;
+  border-radius:8px;margin:14px 0;color:#6b4a10;font-size:12.6px}
+.keynote::before{content:"◆";flex:0 0 auto;color:var(--mh);font-size:13px}
+.keynote b{color:#5c3d09}
+
+/* ---------- LISTS ---------- */
+ul.tight,ol.tight{margin:0 0 12px;padding-left:18px}
+ul.tight li,ol.tight li{margin:5px 0;font-size:12.6px;color:#333d4b;line-height:1.42}
+ol.steps{counter-reset:step;list-style:none;padding-left:0;margin:0 0 12px}
+ol.steps li{counter-increment:step;position:relative;padding-left:32px;margin:9px 0;font-size:12.6px;color:#333d4b;line-height:1.42}
+ol.steps li::before{content:counter(step);position:absolute;left:0;top:0;width:21px;height:21px;
+  border-radius:50%;background:var(--asphalt);color:var(--lane);font-family:'IBM Plex Mono',monospace;
+  font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center}
+ol.steps li b{color:var(--asphalt)}
+
+/* ---------- RISK CHART (compact) ---------- */
+.risk-chart{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:#fff;margin:10px 0 14px}
+.risk-head,.risk-row{display:flex;align-items:center;gap:10px}
+.risk-head{font-family:'Barlow Condensed',sans-serif;font-size:10.5px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.03em;color:var(--muted);margin-bottom:6px;
+  padding-bottom:5px;border-bottom:1px solid var(--line)}
+.risk-band{width:60px;flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-size:10.8px;font-weight:600;color:var(--asphalt)}
+.risk-row{margin:4px 0}
+.bar-item{flex:1;display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted);font-family:'IBM Plex Mono',monospace}
+.track{flex:1;height:9px;background:#edeae0;border-radius:5px;overflow:hidden}
+.fill{height:100%;border-radius:5px}
+.thai{background:var(--thai)}
+.mh{background:var(--mh)}
+.bar-item span{width:42px;flex:0 0 auto;text-align:right}
+.legend{display:flex;gap:16px;font-size:10.5px;color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:middle}
+
+.lane-divider{height:0;border-top:2px dashed var(--lane);opacity:.6;margin:16px 0}
+.two-col{display:flex;gap:16px}
+.two-col > div{flex:1}
+
+@media print{
+  body{background:#fff}
+  .page{box-shadow:none;margin:0;width:auto;min-height:auto}
+}
+</style></head>
+<body>
+
+<!-- ============ PAGE 1 — COVER ============ -->
+<div class="page cover">
+  <div class="eyebrow">◆ ADB Innovation — Road Safety Assessment</div>
+  <h1>Road Context, Target Speed, and Risk Scoring: An Open-Data Approach to Road Safety Prioritization</h1>
+  <p class="sub">A screening methodology for Thailand and Maharashtra that combines open point-of-interest and built-up-context data with target speed limits, observed operating speed, and traffic exposure to score and prioritise every road segment by risk.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="badge">15,554</div><span>Road segments<br>assessed</span></div>
+    <div class="kpi"><div class="badge">11,544</div><span>Thailand<br>segments</span></div>
+    <div class="kpi"><div class="badge">4,010</div><span>Maharashtra<br>segments</span></div>
+    <div class="kpi"><div class="badge">8</div><span>Road-context<br>clusters</span></div>
+  </div>
+  <div class="qlist">
+    <div class="qhead">This brief answers five questions</div>
+    <ol>
+      <li><b>What did the model find?</b> — page 2</li>
+      <li><b>How could a transport ministry or road safety agency use this?</b> — page 4</li>
+      <li><b>What specific decisions could it inform?</b> — page 5</li>
+      <li><b>Where should governments prioritize action?</b> — page 5</li>
+      <li><b>What would it take to apply this in a country with less data availability?</b> — page 6</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============ PAGE 2 — Q1 part A: cluster table ============ -->
+<div class="page">
+  <div class="runhead"><span><b>ADB Road Safety Assessment</b> — Results Summary</span><span>Page 2 / 6</span></div>
+
+  <div class="q-head"><div class="q-num">01</div><h2>What did the model find?</h2></div>
+  <p class="intro">Every road segment sits in one of eight road-context clusters, built from open point-of-interest density and GHSL built-up context. The cluster a segment belongs to shapes its target speed and, ultimately, its risk score.</p>
+
+  <div class="table-wrap small-table"><table><thead><tr>
+    <th>Cluster</th><th>Seg. Count</th><th>% of Segs</th><th>% Thailand</th><th>% Maharashtra</th>
+    <th>Median Length (m)</th><th>PT/km</th><th>Office/km</th><th>School/km</th><th>Comm./km</th><th>Ind./km</th>
+    <th>PT Dist (m)</th><th>Office Dist (m)</th><th>School Dist (m)</th><th>Comm. Dist (m)</th><th>Ind. Dist (m)</th>
+    <th>Built-up Share</th><th>Built-up Cont.</th>
+  </tr></thead><tbody>
+    <tr><td class="wrap"><b>Cluster A</b> — Urban commercial strip</td><td>2,544</td><td>16.36%</td><td>87.66%</td><td>12.34%</td><td>988.07</td><td>0</td><td>0</td><td>0</td><td>1.2285</td><td>0</td><td>250</td><td>250</td><td>250</td><td>124.53</td><td>1,000</td><td>20.035%</td><td>75.00%</td></tr>
+    <tr><td class="wrap"><b>Cluster B</b> — Dense mixed-use urban activity center</td><td>994</td><td>6.39%</td><td>86.52%</td><td>13.48%</td><td>1,337.08</td><td>6.0314</td><td>2.7632</td><td>0.0734</td><td>12.2296</td><td>0.7013</td><td>53.78</td><td>107.95</td><td>241.935</td><td>93.47</td><td>707.045</td><td>28.50%</td><td>100.00%</td></tr>
+    <tr><td class="wrap"><b>Cluster C</b> — Transport-and-service interurban corridor</td><td>1,445</td><td>9.29%</td><td>74.81%</td><td>25.19%</td><td>6,784.24</td><td>0.3977</td><td>0.0056</td><td>0</td><td>0.419</td><td>0</td><td>23.98</td><td>245.87</td><td>250</td><td>75.30</td><td>1,000</td><td>8.71%</td><td>20.00%</td></tr>
+    <tr><td class="wrap"><b>Cluster D</b> — Low-activity / open context</td><td>6,431</td><td>41.35%</td><td>63.75%</td><td>36.25%</td><td>2,977.53</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>250</td><td>250</td><td>250</td><td>250</td><td>1,000</td><td>4.97%</td><td>8.33%</td></tr>
+    <tr><td class="wrap"><b>Cluster E</b> — Industrial-adjacent / logistics fringe</td><td>1,323</td><td>8.51%</td><td>55.03%</td><td>44.97%</td><td>2,804.80</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0.8368</td><td>250</td><td>250</td><td>250</td><td>250</td><td>361.74</td><td>9.45%</td><td>22.11%</td></tr>
+    <tr><td class="wrap"><b>Cluster F</b> — School-adjacent open corridor</td><td>1,791</td><td>11.51%</td><td>91.62%</td><td>8.38%</td><td>7,837.25</td><td>0</td><td>0</td><td>0.2123</td><td>0.0591</td><td>0</td><td>250</td><td>250</td><td>99.21</td><td>159.83</td><td>1,000</td><td>7.68%</td><td>16.67%</td></tr>
+    <tr><td class="wrap"><b>Cluster G</b> — School-and-commercial urban corridor</td><td>844</td><td>5.43%</td><td>90.28%</td><td>9.72%</td><td>903.80</td><td>0</td><td>0</td><td>1.5164</td><td>3.6556</td><td>0</td><td>250</td><td>250</td><td>137.065</td><td>103.655</td><td>1,000</td><td>23.985%</td><td>90.82%</td></tr>
+    <tr><td class="wrap"><b>Cluster Z</b> — Motorway (rule-based exclusion)</td><td>182</td><td>1.17%</td><td>78.02%</td><td>21.98%</td><td>1,688.37</td><td>0</td><td>0.3914</td><td>0</td><td>0.9053</td><td>0.9566</td><td>250</td><td>191.42</td><td>250</td><td>159.38</td><td>688.465</td><td>12.245%</td><td>33.215%</td></tr>
+  </tbody></table></div>
+
+  <p class="body">Cluster D (low-activity/open context) is the largest single group at 41.35% of all segments — the open-road baseline with almost no POI density and low built-up share. At the other end, Cluster B (dense mixed-use urban activity center) is the most intensively built-up and POI-dense cluster, with the shortest distances to transport, offices, and commercial activity, while Clusters A and G add large volumes of commercial- and school-adjacent urban roads. Together, urban clusters A, B and G account for 28.18% of all segments and carry the built-up density that ultimately pushes their target speeds down to 30–50 km/h.</p>
+
+  <div class="note"><div><b>Reading the two speed indicators used below.</b> <i>Speed limit vs. target</i> compares the existing/posted speed limit with the cluster's Safe-System target speed. <i>P85 vs. target</i> compares the observed 85th-percentile operating speed — i.e. driver behaviour — with that same target. Reported separately, they distinguish a regulatory problem from a real-world behaviour problem.</div></div>
+</div>
+
+<!-- ============ PAGE 3 — Q1 part B: top10 tables + insight ============ -->
+<div class="page">
+  <div class="runhead"><span><b>ADB Road Safety Assessment</b> — Results Summary</span><span>Page 3 / 6</span></div>
+  <div class="cont-tag">01 — What did the model find? (continued)</div>
+
+  <p class="intro">The largest groups of segments in each country — combining cluster, speed-limit gap, driver-behaviour gap, and traffic exposure — show two very different pictures.</p>
+
+  <div class="table-cap">Thailand — top 10 groups</div>
+  <div class="table-wrap top10-table"><table><thead><tr>
+    <th>Rank</th><th>Cluster</th><th>Limit vs Target</th><th>P85 vs Target</th><th>Insight</th><th>Traffic Exp.</th><th>Segments</th>
+  </tr></thead><tbody>
+    <tr><td>1</td><td class="wrap">Urban commercial strip</td><td>Very High Excess</td><td>Very High Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>low–middle</td><td>740</td></tr>
+    <tr><td>2</td><td class="wrap">Urban commercial strip</td><td>Very High Excess</td><td>Very High Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>middle–high</td><td>488</td></tr>
+    <tr><td>3</td><td class="wrap">Urban commercial strip</td><td>Very High Excess</td><td>Very High Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>high</td><td>446</td></tr>
+    <tr><td>4</td><td class="wrap">School-and-commercial urban corridor</td><td>Very High Excess</td><td>Very High Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>middle–high</td><td>443</td></tr>
+    <tr><td>5</td><td class="wrap">School-and-commercial urban corridor</td><td>Very High Excess</td><td>Very High Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>low–middle</td><td>441</td></tr>
+    <tr><td>6</td><td class="wrap">Urban commercial strip</td><td>Very High Excess</td><td>Very High Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>low</td><td>438</td></tr>
+    <tr><td>7</td><td class="wrap">School-and-commercial urban corridor</td><td>Very High Excess</td><td>Very High Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>high</td><td>395</td></tr>
+    <tr><td>8</td><td class="wrap">Dense mixed-use urban activity center</td><td>Very High Excess</td><td>Very High Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>high</td><td>209</td></tr>
+    <tr><td>9</td><td class="wrap">School-and-commercial urban corridor</td><td>Very High Excess</td><td>Very High Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>low</td><td>180</td></tr>
+    <tr><td>10</td><td class="wrap">Urban commercial strip</td><td>High Excess</td><td>Very High Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>low–middle</td><td>172</td></tr>
+  </tbody></table></div>
+
+  <div class="table-cap">Maharashtra — top 10 groups</div>
+  <div class="table-wrap top10-table"><table><thead><tr>
+    <th>Rank</th><th>Cluster</th><th>Limit vs Target</th><th>P85 vs Target</th><th>Insight</th><th>Traffic Exp.</th><th>Segments</th>
+  </tr></thead><tbody>
+    <tr><td>1</td><td class="wrap">Urban commercial strip</td><td>Slight Excess</td><td>Align</td><td class="wrap">Limit may be too high; drivers already slow</td><td>low</td><td>466</td></tr>
+    <tr><td>2</td><td class="wrap">Urban commercial strip</td><td>Slight Excess</td><td>Align</td><td class="wrap">Limit may be too high; drivers already slow</td><td>low–middle</td><td>171</td></tr>
+    <tr><td>3</td><td class="wrap">Urban commercial strip</td><td>Slight Excess</td><td>Slight Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>low</td><td>170</td></tr>
+    <tr><td>4</td><td class="wrap">Urban commercial strip</td><td>Slight Excess</td><td>Slight Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>low–middle</td><td>145</td></tr>
+    <tr><td>5</td><td class="wrap">School-adjacent open corridor</td><td>Align</td><td>Align</td><td class="wrap">Broadly aligned at corridor scale</td><td>high</td><td>118</td></tr>
+    <tr><td>6</td><td class="wrap">Urban commercial strip</td><td>Slight Excess</td><td>Moderate Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>low–middle</td><td>110</td></tr>
+    <tr><td>7</td><td class="wrap">School-adjacent open corridor</td><td>Align</td><td>Align</td><td class="wrap">Broadly aligned at corridor scale</td><td>low–middle</td><td>108</td></tr>
+    <tr><td>8</td><td class="wrap">Urban commercial strip</td><td>Slight Excess</td><td>Very High Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>middle–high</td><td>84</td></tr>
+    <tr><td>9</td><td class="wrap">Urban commercial strip</td><td>Slight Excess</td><td>High Excess</td><td class="wrap">Limit + road environment both unsafe</td><td>low–middle</td><td>79</td></tr>
+    <tr><td>10</td><td class="wrap">Industrial-adjacent / logistics fringe</td><td>Align</td><td>Align</td><td class="wrap">Broadly aligned at corridor scale</td><td>high</td><td>76</td></tr>
+  </tbody></table></div>
+
+  <div class="two-col">
+    <div class="card red"><h3>Thailand: risk is driven by the speed-limit gap</h3><p>Nine of Thailand's top ten groups show <b>Very High Excess</b> between the existing posted speed limit and the new target speed limit — the single largest driver of Thailand's high total-risk scores, and the reason its risk distribution skews toward the top bands.</p></div>
+    <div class="card amber"><h3>Maharashtra: mostly low-to-mid risk</h3><p>Maharashtra's leading groups are dominated by <b>Slight Excess</b> or <b>Align</b> ratings on that same indicator — the existing limit is much closer to target — which keeps most segments in the low-to-middle risk bands rather than the highest ones.</p></div>
+  </div>
+</div>
+
+<!-- ============ PAGE 4 — Q2 ============ -->
+<div class="page">
+  <div class="runhead"><span><b>ADB Road Safety Assessment</b> — Results Summary</span><span>Page 4 / 6</span></div>
+
+  <div class="q-head"><div class="q-num">02</div><h2>How could a transport ministry or road safety agency use this?</h2></div>
+  <p class="intro">The output is built to be used directly as a screening dashboard, not just a research dataset — it already does the work of combining variables that would otherwise sit in separate systems.</p>
+
+  <div class="grid2">
+    <div class="card blue"><h3>One score, many inputs already combined</h3><p>The dashboard's risk score already blends multiple variables into a single number for every segment — including the gap between the existing speed limit and the new recommended target speed limit, and the gap between actual driver behaviour (P85 operating speed) and that recommended limit, alongside vulnerable-road-user exposure, intersection density, and traffic exposure. The higher the score, the more urgently that segment needs review — so an agency gets a ready-made priority order instead of having to merge raw datasets itself.</p></div>
+    <div class="card teal"><h3>Segment-level stats, not just a score</h3><p>On the dashboard itself, a user can also drill into the underlying road segment: its name, road length, road profile/context (which of the eight clusters it belongs to), and other descriptive attributes. That lets a planner move straight from "this segment is high risk" to "here is exactly where it is and what kind of road it is" — without a separate lookup step.</p></div>
+  </div>
+</div>
+
+<!-- ============ PAGE 5 — Q3 + Q4 ============ -->
+<div class="page">
+  <div class="runhead"><span><b>ADB Road Safety Assessment</b> — Results Summary</span><span>Page 5 / 6</span></div>
+
+  <div class="q-head"><div class="q-num">03</div><h2>What specific decisions could it inform?</h2></div>
+  <div class="table-wrap"><table><thead><tr><th>Decision</th><th>What the model provides</th></tr></thead><tbody>
+    <tr><td class="wrap">Where to recalibrate posted speed limits</td><td class="wrap">Cluster-based target speed compared against the existing/posted limit, segment by segment</td></tr>
+    <tr><td class="wrap">Where to invest in engineering treatments</td><td class="wrap">Segments where <i>both</i> the limit and observed P85 speed exceed target — the highest-return locations for physical redesign</td></tr>
+    <tr><td class="wrap">Where to prioritize school and VRU programmes</td><td class="wrap">School- and commercial-density clusters cross-referenced with traffic exposure</td></tr>
+    <tr><td class="wrap">Where enforcement alone can help most</td><td class="wrap">Segments with high P85 excess but limits already near target — a behaviour-led rather than design-led problem</td></tr>
+    <tr><td class="wrap">Where field audits should go first</td><td class="wrap">Total-risk score ranking, by band, corridor, and country</td></tr>
+  </tbody></table></div>
+
+  <div class="lane-divider"></div>
+
+  <div class="q-head"><div class="q-num">04</div><h2>Where should governments prioritize action?</h2></div>
+  <p class="intro">Risk is concentrated, not evenly spread — so a constrained budget should follow the shape of each country's distribution rather than a single national rule.</p>
+
+  <div class="risk-chart">
+    <div class="risk-head"><div class="risk-band">Band</div><div class="bar-item">Thailand</div><div class="bar-item">Maharashtra</div></div>
+    <div class="risk-row"><div class="risk-band">0–&lt;10</div><div class="bar-item"><div class="track"><div class="fill thai" style="width:0.28%"></div></div><span>0.28%</span></div><div class="bar-item"><div class="track"><div class="fill mh" style="width:1.10%"></div></div><span>1.10%</span></div></div>
+    <div class="risk-row"><div class="risk-band">10–&lt;20</div><div class="bar-item"><div class="track"><div class="fill thai" style="width:1.28%"></div></div><span>1.28%</span></div><div class="bar-item"><div class="track"><div class="fill mh" style="width:8.78%"></div></div><span>8.78%</span></div></div>
+    <div class="risk-row"><div class="risk-band">20–&lt;30</div><div class="bar-item"><div class="track"><div class="fill thai" style="width:2.56%"></div></div><span>2.56%</span></div><div class="bar-item"><div class="track"><div class="fill mh" style="width:34.29%"></div></div><span>34.29%</span></div></div>
+    <div class="risk-row"><div class="risk-band">30–&lt;40</div><div class="bar-item"><div class="track"><div class="fill thai" style="width:4.47%"></div></div><span>4.47%</span></div><div class="bar-item"><div class="track"><div class="fill mh" style="width:22.89%"></div></div><span>22.89%</span></div></div>
+    <div class="risk-row"><div class="risk-band">40–&lt;50</div><div class="bar-item"><div class="track"><div class="fill thai" style="width:7.72%"></div></div><span>7.72%</span></div><div class="bar-item"><div class="track"><div class="fill mh" style="width:16.23%"></div></div><span>16.23%</span></div></div>
+    <div class="risk-row"><div class="risk-band">50–&lt;60</div><div class="bar-item"><div class="track"><div class="fill thai" style="width:11.91%"></div></div><span>11.91%</span></div><div class="bar-item"><div class="track"><div class="fill mh" style="width:5.21%"></div></div><span>5.21%</span></div></div>
+    <div class="risk-row"><div class="risk-band">60–&lt;70</div><div class="bar-item"><div class="track"><div class="fill thai" style="width:17.26%"></div></div><span>17.26%</span></div><div class="bar-item"><div class="track"><div class="fill mh" style="width:6.06%"></div></div><span>6.06%</span></div></div>
+    <div class="risk-row"><div class="risk-band">70–&lt;80</div><div class="bar-item"><div class="track"><div class="fill thai" style="width:25.16%"></div></div><span>25.16%</span></div><div class="bar-item"><div class="track"><div class="fill mh" style="width:3.54%"></div></div><span>3.54%</span></div></div>
+    <div class="risk-row"><div class="risk-band">80–&lt;90</div><div class="bar-item"><div class="track"><div class="fill thai" style="width:21.96%"></div></div><span>21.96%</span></div><div class="bar-item"><div class="track"><div class="fill mh" style="width:1.20%"></div></div><span>1.20%</span></div></div>
+    <div class="risk-row"><div class="risk-band">90–100</div><div class="bar-item"><div class="track"><div class="fill thai" style="width:7.41%"></div></div><span>7.41%</span></div><div class="bar-item"><div class="track"><div class="fill mh" style="width:0.70%"></div></div><span>0.70%</span></div></div>
+    <div class="legend"><span><i style="background:var(--thai)"></i>Thailand</span><span><i style="background:var(--mh)"></i>Maharashtra</span></div>
+  </div>
+
+  <div class="two-col">
+    <div class="card red"><h3>Thailand — act on the top bands first</h3><p>25.16% of segments sit in 70–under-80 and 21.96% in 80–under-90. Priority: Urban commercial strip, School-and-commercial urban corridor, and Dense mixed-use urban activity center segments where the limit and P85 both far exceed target — pair lower limits with crossings, gateway treatments, and enforcement.</p></div>
+    <div class="card amber"><h3>Maharashtra — audit before the risk escalates</h3><p>Peaks at 20–under-30 (34.29%) and 30–under-40 (22.89%). Priority: a systematic speed-limit and self-explaining-design audit of Urban commercial strip corridors now, while most segments are still in the lower-to-middle bands.</p></div>
+  </div>
+</div>
+
+<!-- ============ PAGE 6 — Q5 ============ -->
+<div class="page">
+  <div class="runhead"><span><b>ADB Road Safety Assessment</b> — Results Summary</span><span>Page 6 / 6</span></div>
+
+  <div class="q-head"><div class="q-num">05</div><h2>What would it take to apply this methodology in a country with less data availability?</h2></div>
+
+  <p class="body">Less than most road safety assessments would suggest. Every input in this methodology is drawn from <b>open-source, globally-available datasets</b> — principally <b>OpenStreetMap</b> (road network geometry, road classification, and point-of-interest tags) and the <b>Global Human Settlement Layer, GHSL</b> (satellite-derived built-up area and settlement context). Neither depends on a national crash database, traffic counts, or commercial data licences, and both already provide near-complete coverage of populated areas in almost every country in the world — including most low- and middle-income countries where official road safety data is thinnest. That is the core reason this approach is designed to travel beyond the two pilot geographies, rather than being bespoke to them.</p>
+
+  <div class="keynote"><div><b>Why this matters.</b> Conventional road safety assessments are usually bottlenecked by years of crash-record compilation and field speed surveys. Because this methodology's heaviest inputs are already free, global, and pre-collected, a new country starts from a working national dataset on day one — the remaining work is calibration, not data collection.</div></div>
+
+  <p class="body" style="margin-top:14px"><b>What would still need to happen to adapt it to a lower-data-availability country:</b></p>
+  <ol class="steps">
+    <li><b>Audit local OSM completeness.</b> Tagging density varies by country and even by city; sparsely-tagged areas may need a short, targeted mapping push (e.g. a HOT OpenStreetMap Team campaign) on priority corridors before clustering.</li>
+    <li><b>Re-cluster on the local road network.</b> Built-environment norms — informal markets, motorcycle-dominant streets, mixed land use — differ by country, so cluster centers should be re-derived locally rather than reusing Thailand/Maharashtra's cluster profiles.</li>
+    <li><b>Find a low-cost proxy for observed speed (P85).</b> This is the one input not fully covered by OSM/GHSL. Options include existing GPS probe/floating-car data from ride-hailing or logistics partners, free navigation-app speed layers, or a small manual radar-gun sample used only to validate the model rather than to cover the full network.</li>
+    <li><b>Confirm local Safe System speed thresholds.</b> The 30/50/70/100 km/h target bands used here reflect regional guidance; a new country should check these against its own national road safety strategy before applying them.</li>
+    <li><b>Budget for analyst time, not new data spend.</b> The workflow runs on free tools (QGIS, Python, open data), so the main resource requirement is GIS/analytical capacity inside the ministry or a technical partner — not data purchases or software licences.</li>
+    <li><b>Validate with local experts, then pilot.</b> Have local road safety engineers sanity-check cluster labels and target speeds, pilot the full scoring on one province or corridor, and confirm it matches on-the-ground experience before scaling nationally.</li>
+  </ol>
+
+  <p class="body">In short: the marginal cost of extending this methodology to a new country is mostly <b>analytical and institutional</b> — calibration, validation, and a modest speed-data sample — rather than a multi-year data-collection exercise.</p>
+</div>
+
+</body></html>
